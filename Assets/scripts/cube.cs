@@ -15,7 +15,7 @@ public class cube : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragHand
     void Start()
     {
         speed = speedValue;
-        plane = new Plane(Vector3.forward, new Vector3(0,0,0f)); 
+        plane = new Plane(Vector3.up, new Vector3(0,1,0f)); 
     }
 
     // Update is called once per frame

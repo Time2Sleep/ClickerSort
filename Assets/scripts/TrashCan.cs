@@ -11,18 +11,15 @@ public class TrashCan : MonoBehaviour
         score = FindObjectOfType<Score>();
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        
-            if (Input.GetMouseButtonUp(0))
-            {
-                if (other.GetComponent<cube>().type.Equals(type))
+        Debug.Log("Enter" + other.name);
+           if (other.GetComponent<cube>().type.Equals(type))
                 {
                     Debug.Log("The Right Cube Inside me");
                     score.addPoint();
                 }
-                Destroy(other.gameObject);
-            }
+            Destroy(other.gameObject);
         
     }
 }
