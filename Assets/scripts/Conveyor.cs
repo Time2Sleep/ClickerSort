@@ -8,7 +8,6 @@ public class Conveyor : MonoBehaviour
 
     private void OnCollisionStay(Collision other)
     {
-        Debug.Log("Collision stay" + other.gameObject.name);
-        other.transform.Translate(transform.right*speed*Time.deltaTime, Space.World);
+        other.transform.Translate(Time.deltaTime*speed*transform.right, Space.World);
     }
 }

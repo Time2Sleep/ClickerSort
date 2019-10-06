@@ -1,21 +1,19 @@
+using UnityEngine;
+using UnityEngine.UI;
 
-    using UnityEngine;
-    using UnityEngine.UI;
+public class Score : MonoBehaviour
+{
+    private int score { get; set; }
+    private Text text { get; set; }
 
-    public class Score : MonoBehaviour
+    private void Start()
     {
-        private int score = 0;
-        private Text text;
-
-        private void Start()
-        {
-            text = GetComponent<Text>();
-        }
-
-        public void addPoint()
-        {
-            score++;
-            text.text = score.ToString();
-        }
-        
+        text = GetComponent<Text>();
     }
+
+    public void addPoint()
+    {
+        score++;
+        text.text = score.ToString();
+    }
+}

@@ -6,7 +6,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] cubes;
-    
+
     // Start is called before the first frame update
     private void Start()
     {
