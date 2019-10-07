@@ -1,19 +1,23 @@
-﻿using UnityEngine;
+﻿using System;
+using items;
+using UnityEngine;
 
 public class Truck : MonoBehaviour
 {
-    [SerializeField] private string acceptingType;
+    private ItemType expectedType;
     private Score score { get; set; }
-
+    public Conveyor myConveyor;
 
     private void Start()
     {
         score = FindObjectOfType<Score>();
+        expectedType = myConveyor.expectedType;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<Item>().type.Equals(acceptingType))
+        Item item = other.GetComponent<Item>();
+        if (item != null && item.itemTypes.Contains(expectedType))
         {
             Debug.Log("The Right Cube Inside me");
             score.addPoint();

@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 8102420092958195419}
   - component: {fileID: 6561628398885073381}
   - component: {fileID: 8864365588458291284}
-  - component: {fileID: 1201334986952332422}
   - component: {fileID: 3996233976864243199}
+  - component: {fileID: 6995845978673233792}
   m_Layer: 0
   m_Name: BlueCube
   m_TagString: Untagged
@@ -94,19 +94,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1201334986952332422
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9032999793792713442}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6072f9eadb3b9564d8aa2b25662cd1ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: blue
 --- !u!54 &3996233976864243199
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -123,3 +110,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6995845978673233792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9032999793792713442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6072f9eadb3b9564d8aa2b25662cd1ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemTypes: 02000000

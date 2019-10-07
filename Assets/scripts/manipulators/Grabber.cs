@@ -1,18 +1,17 @@
 using System;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace manipulators
 {
-    public class Grabber : MonoBehaviour
+    public class Grabber : Manipulator
     {
-        public Transform frontRayOrigin;
         public Transform backRayOrigin;
         public Transform selectorPosition;
-        private Animator animator;
-        private float speed;
         private Item currentItem;
-        private bool finished =true;
-
+        private bool readyToGrab;
+        private Animator animator;
+        private static readonly int BeginGrab = Animator.StringToHash("beginGrab");
 
         private void Start()
         {
@@ -21,76 +20,52 @@ namespace manipulators
 
         private void Update()
         {
-            if (isBusy())
+            if (readyToGrab)
             {
-                putItemToCorrectLine();
+                findItemToGrabAndMove();
             }
-            else if (finished)
+            else if (currentItem != null)
             {
-                checkForIncomingItems();
+                moveItem();
             }
         }
 
-        private void putItemToCorrectLine()
+        public void setReadyToGrab()
         {
-            currentItem.transform.position = selectorPosition.transform.position;
+            readyToGrab = true;
         }
 
-        public bool isBusy()
+        private void findItemToGrabAndMove()
         {
-            return currentItem != null;
-        }
-
-        public void Finished()
-        {
-            finished = true;
-        }
-
-        private void checkForIncomingItems()
-        {
-            Ray frontRay = new Ray(frontRayOrigin.position, Vector3.forward);
-            Ray backRay = new Ray(backRayOrigin.position, Vector3.back);
-
-            Item item = tryGetItem(frontRay);
-            if (item != null)
+            Item item = findItem();
+            if (item != null && !item.itemTypes.Contains(acceptedType))
             {
-                moveToCorrectLine(item);
+                readyToGrab = false;
+                animator.SetTrigger(BeginGrab);
+                currentItem = item;
+                currentItem.setPhysics(false);
             }
-
-            item = tryGetItem(backRay);
-            if (item != null)
-            {
-                moveToCorrectLine(item);
-            }
-
-
-            Debug.DrawRay(frontRayOrigin.position, Vector3.forward * 100f, Color.green);
-            Debug.DrawRay(backRayOrigin.position, Vector3.back * 100f, Color.red);
         }
 
-        private void moveToCorrectLine(Item item)
+        public void dropItem()
         {
-            currentItem = item;
-            currentItem.setPhysics(false);
-        }
-
-        public void drop()
-        {
-            finished = false;
             currentItem.setPhysics(true);
             currentItem = null;
         }
 
-        private Item tryGetItem(Ray ray)
+        private void moveItem()
         {
+            currentItem.transform.position = selectorPosition.transform.position;
+        }
+
+        private Item findItem()
+        {
+            Ray backRay = new Ray(backRayOrigin.position, Vector3.back);
             RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(backRay, out hit))
             {
                 Item item = hit.transform.GetComponent<Item>();
-                if (item != null)
-                {
-                    return item;
-                }
+                return item;
             }
 
             return null;
