@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.4509048, g: 0.500797, b: 0.57453334, a: 1}
+  m_IndirectSpecularColor: {r: 0.45090485, g: 0.50079715, b: 0.5745338, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -120,6 +120,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!23 &83731995 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -113181020801827196, guid: d1e7511096c4144ffbdc75ce0552aaab,
+    type: 3}
+  m_PrefabInstance: {fileID: 1657368856}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -245,7 +251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conveyor: {fileID: 1634704517}
   acceptedType: 0
-  laserDelay: 0
+  laserDelay: 5
   lineRenderer: {fileID: 1299783320}
 --- !u!65 &335723430
 BoxCollider:
@@ -564,6 +570,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Manipulator
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: b34fbc0f610c14a3aa7cd0fa03f01558,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 4eaecdc31520441519015bd30be46984, type: 2}
     - target: {fileID: -4216859302048453862, guid: b34fbc0f610c14a3aa7cd0fa03f01558,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -619,11 +630,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: b34fbc0f610c14a3aa7cd0fa03f01558,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 4eaecdc31520441519015bd30be46984, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b34fbc0f610c14a3aa7cd0fa03f01558, type: 3}
 --- !u!1 &795549456
@@ -966,6 +972,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6
   expectedType: 2
+  conveyorBelt: {fileID: 1465932260}
 --- !u!1 &1024044453
 GameObject:
   m_ObjectHideFlags: 0
@@ -1451,6 +1458,12 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!23 &1204607645 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -113181020801827196, guid: d1e7511096c4144ffbdc75ce0552aaab,
+    type: 3}
+  m_PrefabInstance: {fileID: 1527769536}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1216544460
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1466,7 +1479,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: d1e7511096c4144ffbdc75ce0552aaab,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.7
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d1e7511096c4144ffbdc75ce0552aaab,
         type: 3}
@@ -1518,11 +1531,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: d1e7511096c4144ffbdc75ce0552aaab,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: -113181020801827196, guid: d1e7511096c4144ffbdc75ce0552aaab,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1cbc260faa7e14e2d90dbf11cc1e67f0, type: 2}
+      objectReference: {fileID: 2100000, guid: c97754ab52c942b45a010d6f3cd864a3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1e7511096c4144ffbdc75ce0552aaab, type: 3}
 --- !u!1 &1273854357 stripped
@@ -1825,6 +1843,12 @@ Transform:
   m_Father: {fileID: 1904929013}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &1465932260 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -113181020801827196, guid: d1e7511096c4144ffbdc75ce0552aaab,
+    type: 3}
+  m_PrefabInstance: {fileID: 1216544460}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1527769536
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1840,7 +1864,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: d1e7511096c4144ffbdc75ce0552aaab,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.7
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d1e7511096c4144ffbdc75ce0552aaab,
         type: 3}
@@ -1892,11 +1916,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: d1e7511096c4144ffbdc75ce0552aaab,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: -113181020801827196, guid: d1e7511096c4144ffbdc75ce0552aaab,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1cbc260faa7e14e2d90dbf11cc1e67f0, type: 2}
+      objectReference: {fileID: 2100000, guid: c97754ab52c942b45a010d6f3cd864a3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1e7511096c4144ffbdc75ce0552aaab, type: 3}
 --- !u!1 &1634704512
@@ -2007,6 +2036,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6
   expectedType: 1
+  conveyorBelt: {fileID: 83731995}
 --- !u!1 &1639381833
 GameObject:
   m_ObjectHideFlags: 0
@@ -2066,7 +2096,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: d1e7511096c4144ffbdc75ce0552aaab,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.7
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d1e7511096c4144ffbdc75ce0552aaab,
         type: 3}
@@ -2118,11 +2148,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: d1e7511096c4144ffbdc75ce0552aaab,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: -113181020801827196, guid: d1e7511096c4144ffbdc75ce0552aaab,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1cbc260faa7e14e2d90dbf11cc1e67f0, type: 2}
+      objectReference: {fileID: 2100000, guid: c97754ab52c942b45a010d6f3cd864a3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1e7511096c4144ffbdc75ce0552aaab, type: 3}
 --- !u!1 &1795861056
@@ -2233,6 +2268,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6
   expectedType: 0
+  conveyorBelt: {fileID: 1204607645}
 --- !u!4 &1904929013 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -6595333699966978515, guid: b34fbc0f610c14a3aa7cd0fa03f01558,
