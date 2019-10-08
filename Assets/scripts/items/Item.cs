@@ -13,7 +13,7 @@ public class Item : MonoBehaviour, IDragHandler
     // Start is called before the first frame update
     void Start()
     {
-        plane = new Plane(Vector3.up, new Vector3(0, 1, 0f));
+        plane = new Plane(Vector3.up, new Vector3(0, 2, 0f));
     }
 
     public void OnDrag(PointerEventData eventData)

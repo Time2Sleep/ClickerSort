@@ -62,7 +62,7 @@ namespace manipulators
         {
             Ray backRay = new Ray(backRayOrigin.position, Vector3.back);
             RaycastHit hit;
-            if (Physics.Raycast(backRay, out hit))
+            if (Physics.Raycast(backRay, out hit, 2))
             {
                 Item item = hit.transform.GetComponent<Item>();
                 return item;
