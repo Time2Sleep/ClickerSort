@@ -16,7 +16,7 @@ public class Conveyor : MonoBehaviour
 
     private void OnCollisionStay(Collision other)
     {
-        other.transform.Translate(-Time.deltaTime * speed * transform.up, Space.World);
+        other.transform.Translate(Time.deltaTime * speed * Vector3.right, Space.World);
     }
 
     void FixedUpdate()

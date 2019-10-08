@@ -60,7 +60,7 @@ namespace manipulators
 
         private Item findItem()
         {
-            Ray backRay = new Ray(backRayOrigin.position, Vector3.back);
+            Ray backRay = new Ray(backRayOrigin.position, transform.right);
             RaycastHit hit;
             if (Physics.Raycast(backRay, out hit, 2))
             {
