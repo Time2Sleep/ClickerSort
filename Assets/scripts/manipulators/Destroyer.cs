@@ -6,6 +6,7 @@ namespace manipulators
     public class Destroyer : Manipulator
     {
         [SerializeField] private float laserDelay;
+        [SerializeField] private GameObject laserMesh;
         private bool canShoot = true;
         public LineRenderer lineRenderer;
 
@@ -27,6 +28,7 @@ namespace manipulators
             Item item = lookForItems();
             if (item != null)
             {
+                laserMesh.transform.LookAt(item.transform);
                 Debug.Log("asd");
                 foreach (ItemType itemType in item.itemTypes)
                 {
@@ -42,7 +44,7 @@ namespace manipulators
 
         private Item lookForItems()
         {
-            Ray backRay = new Ray(gameObject.transform.position, Vector3.forward);
+            Ray backRay = new Ray(gameObject.transform.position, transform.forward);
             RaycastHit hit;
             if (Physics.Raycast(backRay, out hit))
             {
