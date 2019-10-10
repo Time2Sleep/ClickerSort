@@ -9,6 +9,7 @@ namespace manipulators
         [SerializeField] private GameObject laserMesh;
         private bool canShoot = true;
         public LineRenderer lineRenderer;
+        private float conveyorOffset = 0f;
 
         private void Update()
         {
@@ -66,6 +67,12 @@ namespace manipulators
             canShoot = false;
             Destroy(item.gameObject);
             Invoke(nameof(recharge), laserDelay);
+        }
+
+        private void FixedUpdate()
+        {
+            conveyorOffset -=10f;
+            lineRenderer.material.SetTextureOffset("_MainTex", new Vector2(conveyorOffset * Time.deltaTime, 0));
         }
     }
 }
